@@ -1,0 +1,37 @@
+.data-container {
+    width: 25%;
+    /* outline: 2px solid cadetblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.img-container {
+    /* outline: 2px solid rgb(226, 43, 43); */
+    /* background: blueviolet; */
+    width: 60%;
+    height: 165px;
+}
+.react-img {
+    /* outline: 2px solid blue; */
+    width: 100%;
+}
+.list-item {
+    /* outline: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0;
+    margin: 0;
+}
+
+.close {
+    /* outline: 2px solid blue; */
+    margin: 0;
+    width: 50%;
+    background: rgb(107, 107, 107);
+    color: white;
+    border: none;
+    border-radius: 25px;
+}

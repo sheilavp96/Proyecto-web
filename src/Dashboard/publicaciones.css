@@ -1,0 +1,49 @@
+.container-publicaciones {
+    width: 50%;
+    /* outline: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+h1 {
+    text-align: center;
+    /* outline: 2px solid green; */
+    width: 80%;
+}
+
+.add-publicacion {
+    /* background: chartreuse; */
+    /* outline: 2px solid aqua; */
+    width: 90%;
+    display: flex;
+    height: 130px;
+}
+
+.publicar {
+    /* outline: 2px solid red; */
+    display: flex;
+    text-align: start;
+    width: 90%;
+    height: 90px;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.enviar {
+    /* outline: 2px solid slateblue; */
+    height: 30px;
+    width: 20%;
+    border: none;
+    border-radius: 20px;
+    background: rgb(68, 112, 255);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    /* margin: 0; */
+}
+
+.publicaciones {
+    /* outline: 2px solid blue; */
+    width: 90%;
+    height: 420px;
+}
