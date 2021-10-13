@@ -1,4 +1,10 @@
 .anuncio-container {
-    width: 25%;
-    background-color: cadetblue;
+    width: 20%;
+    background: blue;
+}
+
+@media (max-with: 360px) {
+    .anuncio-container {
+        visibility: hidden;
+    }
 }

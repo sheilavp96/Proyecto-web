@@ -174,7 +174,7 @@ const Registro = () => {
                             />
                         </div>
 
-                        {/* EDAD------------------------------------------------------------*/}
+                        {/* Ciudad------------------------------------------------------------*/}
 
                         <div className='datos-container'>
                             <label htmlFor='ciudad'>Ciudad</label>
@@ -183,7 +183,7 @@ const Registro = () => {
 
                         {/* EDAD------------------------------------------------------------*/}
                         <div className='datos-container'>
-                            <label htmlFor='social '>Red social</label>
+                            <label htmlFor='social '>Facebook</label>
                             <input type='text' placeholder='Ingrese su red social' onChange={(e) => setCount(e.target.value)} value={count} />
                         </div>
 

@@ -6,6 +6,7 @@ import Login from './Login/Login';
 // import Otro from './Registro/todo';
 import Registro from './Registro/Registro';
 import Dashboard from './Dashboard/Dashboard';
+import Ajustes from './Dashboard/Ajustes';
 
 function App() {
     /* const [token, setToken] = useState();
@@ -25,6 +26,9 @@ function App() {
                     </Route>
                     <Route path='/dashboard'>
                         <Dashboard />
+                    </Route>
+                    <Route path='/ajustes'>
+                        <Ajustes />
                     </Route>
 
                     <Route path='/'>inicio</Route>

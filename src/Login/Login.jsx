@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './login.css';
 import { withRouter } from 'react-router-dom';
 
@@ -32,6 +32,7 @@ const Login = (props) => {
         const valuePass = password;
 
         const USERS_DATABASE = JSON.parse(localStorage.getItem('userLS'))['dummyUsers'];
+
         /* console.log(USERS_DATABASE);
         console.log(typeof USERS_DATABASE); */
 

@@ -1,0 +1,16 @@
+{
+    "dummyPublicacion": [
+        {
+            "name": "shey",
+            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua. "
+        },
+        {
+            "name": "rodrigo",
+            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua. "
+        },
+        {
+            "name": "julio",
+            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua. "
+        }
+    ]
+}

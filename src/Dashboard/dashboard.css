@@ -1,7 +1,17 @@
 .container-dash {
-    /* background: burlywood; */
+    background: burlywood;
     width: 100%;
-    height: 100vh;
+    min-height: 89vh;
     display: flex;
+    /* flex-direction: column; */
     justify-content: space-around;
+    align-items: center;
+    margin-top: 139px;
+    /* position: relative; */
+}
+
+@media (max-width: 360px) {
+    .container-dash {
+        flex-direction: column;
+    }
 }
