@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './registro.css';
 import { useHistory } from 'react-router';
 import dummyUsers from './dummyUsers.json';
+import load from '../assets/loading.png';
 
 const Registro = () => {
     const route = useHistory();
@@ -125,12 +126,12 @@ const Registro = () => {
             setCity('');
             setCount('');
             showNotificationFunc();
-        }, 3000);
+        }, 10000);
     };
 
     return (
         <>
-            <div className='container'>
+            <div className='container-registro'>
                 <h3 className='title-registro'>Registro</h3>
                 {error && <div className='text-error'>{error}</div>}
 
@@ -190,12 +191,19 @@ const Registro = () => {
                         {/* ENVIAR------------------------------------------------------------ */}
 
                         <button disabled={disableButton()} className='btn-registro' type='submit'>
-                            Enviar
+                            {loading ? (
+                                <div className='loading'>
+                                    <img src={load} className='img-load' />
+                                    <p>Registrando...</p>
+                                </div>
+                            ) : (
+                                <p> Enviar</p>
+                            )}
                         </button>
                     </div>
                 </form>
-                {loading && <div className='loading'>Loading...</div>}
-                {showNotification && <div style={{ color: 'green' }}>Su usuario ha sido registrado exitosamente!</div>}
+                {/* {loading && <div className='loading'>Loading...</div>} */}
+                {showNotification && <div className='send'>Su usuario ha sido registrado exitosamente!</div>}
             </div>
         </>
     );

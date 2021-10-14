@@ -1,21 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+const initialState = {
+    age: '',
+    city: '',
+    count: '',
+    email: '',
+    name: '',
+    password: '',
+};
 
 const Ajustes = () => {
-    //usuario activo en ss
-    const userActive = sessionStorage.getItem('userSS');
-    console.log(userActive);
-    //datos de todos los usuarios
-    const allUsers = JSON.parse(localStorage.getItem('userLS'))['dummyUsers'];
-    console.log(typeof allUsers);
+    const [userActive, setUserActive] = useState({});
+    const [allUsers, setAllUsers] = useState([]);
+    const [userInfo, setUserInfo] = useState(initialState);
 
-    let userObj = {};
-    for (const element of allUsers) {
-        if (element.email === userActive) {
-            userObj = element;
+    useEffect(() => {
+        //usuario activo en ss
+        const userActive = sessionStorage.getItem('userSS');
+        console.log(userActive);
+        //datos de todos los usuarios
+        const allUsers = JSON.parse(localStorage.getItem('userLS'));
+        console.log('all', allUsers.dummyUsers);
+
+        setAllUsers(allUsers.dummyUsers);
+        setUserActive(userActive);
+    }, []);
+
+    useEffect(() => {
+        let userObj = {};
+        for (const element of allUsers) {
+            if (element.email === userActive) {
+                userObj = element;
+            }
         }
-    }
-    const [nameChange, setnameChange] = useState('');
-    console.log(userObj);
+        setUserInfo(userObj);
+    }, [userActive]);
+
+    const handleChangeValues = (e) => {
+        setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+    };
 
     return (
         <div>
@@ -26,7 +49,7 @@ const Ajustes = () => {
                     {/* NOMBRE------------------------------------------------------------ */}
                     <div className='datos-container'>
                         <label htmlFor='name'>Nombre</label>
-                        <input type='text' placeholder='Ingrese su nombre' value={nameChange} />
+                        <input type='text' placeholder='Ingrese su nombre' />
                     </div>
 
                     {/* CORREO------------------------------------------------------------ */}
@@ -51,7 +74,7 @@ const Ajustes = () => {
 
                     <div className='datos-container'>
                         <label htmlFor='ciudad'>Ciudad</label>
-                        <input type='text' placeholder='Ingrese su ciudad' />
+                        <input type='text' placeholder='Ingrese su ciudad' name='city' value={userInfo.city} onChange={handleChangeValues} />
                     </div>
 
                     {/* EDAD------------------------------------------------------------*/}

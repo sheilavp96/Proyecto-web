@@ -1,8 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './publicaciones.css';
-import dummyPublicacion from './dummyPublicacion.json';
+import dummyPost from './dummyPost.json';
 import editar from '../assets/editar.png';
-import x from '../assets/x-button.png';
+import closeBtn from '../assets/x-button.png';
+
+const UsersPost = ({ post }) => {
+    return (
+        <li className='item-container'>
+            <div className='user-text'>
+                <p className='name-user'>{post.name}</p>
+                <span className='item-text'>{post.texto}</span>
+            </div>
+            <div className='drop'>
+                <button className='btn-eliminar btn-list' type='submit'>
+                    <img className='img-edicion' src={editar} />
+                </button>
+                <button className='btn-editar btn-list' type='submit'>
+                    <img className='img-edicion' src={closeBtn} />
+                </button>
+            </div>
+        </li>
+    );
+};
 
 const Publicaciones = () => {
     //todo-----------LOCAL Y SESSION OBTENER USUARIOS-----------------
@@ -22,49 +41,49 @@ const Publicaciones = () => {
     }
 
     //todo--------------USESTATE-------------------
-    const [texto, setTexto] = useState('');
-    const [textos, setTextos] = useState([]);
+    const [post, setPost] = useState('');
+    const [posts, setPosts] = useState([]);
     const [error, setError] = useState(null);
 
     //todo----LOCAL STORAGE SUBIR PUBLICACIONES------------------
-    const setInlocalStoragePublic = (item) => {
+    const setInlocalStoragePost = (item) => {
         localStorage.setItem('userText', JSON.stringify(item));
     };
 
-    const getUsersFromLocal = () => {
+    const getPostFromDataBase = () => {
         //     // converte un string JSON a objeto;
         //     // console.log(JSON.parse(localStorage.getItem('userText')));
-        return JSON.parse(localStorage.getItem('userText'))['dummyPublicacion'];
+        return JSON.parse(localStorage.getItem('userText'));
     };
 
     useEffect(() => {
         const userPublic = localStorage.getItem('userText');
-        //     // console.log(userPublic);
         if (!userPublic) {
-            //         // console.log(dummyPublicacion);
-            setInlocalStoragePublic(dummyPublicacion);
+            setInlocalStoragePost(dummyPost.dummyPost);
+            setTextos(dummyPost.dummyPost);
+        } else {
+            setTextos(getPostFromDataBase());
         }
-    }, [dummyPublicacion]);
+    }, [dummyPost]);
 
     //todo--------------AGREGAR PUBLICACION FUNCION------
 
-    const addPublicaciontoLS = (e) => {
+    const addPostLS = (e) => {
         e.preventDefault();
         console.log(e);
-        const TEXTO_DATABASE = getUsersFromLocal();
-        const NEW_TEXTO = { name: userCurrent.name, texto: texto };
-        const textoOnTheDatabase = { dummyPublicacion: [...TEXTO_DATABASE].concat(NEW_TEXTO) };
-        setInlocalStoragePublic(textoOnTheDatabase);
-        setTextos([...TEXTO_DATABASE, { texto: texto }]);
+        let POST_DATABASE = getPostFromDataBase();
+        const NEW_POST = { name: userCurrent.name, texto: texto };
+        POST_DATABASE.unshift(NEW_POST);
+
+        setInlocalStoragePost(POST_DATABASE);
+        setTextos(POST_DATABASE);
     };
 
     // console.log(textoOntheDatabase);
     return (
         <div className='container-publicaciones'>
-            {/* <h1 className='title-publicacion'>¡ Bienvenido {userCurrent.name} !</h1> */}
-            <ul>{/* {TEXTO_DATABASE.map(function (item) { */}</ul>
             {/* AÑADIR PUBLICACIONS */}
-            <form onSubmit={addPublicaciontoLS} className='add-publicacion'>
+            <form onSubmit={addPostLS} className='add-publicacion'>
                 <input type='text' placeholder='¿Qué esta pasando?' onChange={(e) => setTexto(e.target.value)} value={texto} className='publicar' />
                 <button className='enviar' type='submit'>
                     Enviar
@@ -72,20 +91,8 @@ const Publicaciones = () => {
             </form>
             <div className='publicaciones'>
                 <ul className='list'>
-                    {textos.map((item) => (
-                        <li className='item-container'>
-                            <div className='user-text'>
-                                <span className='item-text'>{item.texto}</span>
-                            </div>
-                            <div className='drop'>
-                                <button className='btn-eliminar btn-list' type='submit'>
-                                    <img className='img-edicion' src={editar} />
-                                </button>
-                                <button className='btn-editar btn-list' type='submit'>
-                                    <img className='img-edicion' src={x} />
-                                </button>
-                            </div>
-                        </li>
+                    {posts.map((item, key) => (
+                        <UsersPost post={item} key={key} />
                     ))}
                 </ul>
             </div>

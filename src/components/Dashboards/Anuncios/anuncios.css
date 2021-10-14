@@ -1,0 +1,28 @@
+.anuncio-container {
+    width: 20%;
+    /* background: blue; */
+}
+
+@media (max-width: 360px) {
+    .anuncio-container {
+        background: blueviolet;
+        width: 50%;
+        height: 40px;
+        position: fixed;
+        top: 70px;
+        z-index: 1;
+        right: 0;
+    }
+}
+/* @media (max-with: 360px) {
+    .anuncio-container {
+        background: blueviolet;
+        outline: 2px solid black;
+        grid-column: 2/3;
+        grid-row: 1/2;
+        margin-top: 0;
+        height: 40px;
+        width: 100%;
+    }
+}
+ */

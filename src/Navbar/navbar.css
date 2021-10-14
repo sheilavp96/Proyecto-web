@@ -2,6 +2,8 @@
     background: rgb(50, 48, 56);
     width: 100%;
     height: 70px;
+
+    /* padding-bottom: 70px; */
     display: flex;
     justify-content: end;
     position: fixed;

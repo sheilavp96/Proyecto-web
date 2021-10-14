@@ -2,12 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import './login.css';
 import { withRouter } from 'react-router-dom';
+import load from '../assets/loading.png';
 
 const Login = (props) => {
     //useState para emaily contraseña
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const [acceder, setAcceder] = useState(false);
 
     //todo------- FUNCION PROCESAR DATOS------------------------
     const procesarDatos = (e) => {
@@ -41,8 +43,11 @@ const Login = (props) => {
             if (user.email === valueEmail && user.password === valuePass) {
                 console.log(`los valores conciden con es el usuario ${valueEmail} con contraseña ${valuePass}`);
                 sessionStorage.setItem('userSS', valueEmail);
-
-                props.history.push('/dashboard');
+                setAcceder(true);
+                setTimeout(() => {
+                    setAcceder(false);
+                    props.history.push('/dashboard');
+                }, 3000);
                 return;
             } else {
                 console.log('los valores no coindicen');
@@ -73,8 +78,15 @@ const Login = (props) => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button className='btn btn-registro' type='submit'>
-                        Acceder
+                    <button className='btn-login' type='submit'>
+                        {acceder ? (
+                            <div className='loading-log'>
+                                <img src={load} className='img-load' />
+                                <p>Redirigiendo...</p>
+                            </div>
+                        ) : (
+                            <p> Acceder</p>
+                        )}
                     </button>
                     {/* <button className='btn btn-info' type='button' onClick={() => setRegistro(!registro)}>
                             {registro ? '¿Ya estas registrado?' : '¿No tienes cuenta?'}

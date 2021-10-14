@@ -1,5 +1,6 @@
-.container {
+.container-registro {
     /* background: lightcoral; */
+    padding-top: 30px;
     height: 89vh;
     display: flex;
     flex-direction: column;
@@ -64,6 +65,10 @@ input {
     font-size: 1.2rem;
     border: none;
     margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 
     /* outline: 2px solid red; */
 }
@@ -88,17 +93,77 @@ input {
     line-height: 40px;
     opacity: 1;
 }
-.exito {
+.send {
     /* background: chartreuse; */
     width: 70%;
     text-align: center;
     margin: auto;
     font-size: 0.8rem;
     text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(0, 167, 0);
 }
 
 .loading {
-    background-color: green;
-
+    /* background-color: green; */
+    /* border: 2px solid black; */
+    width: 215px;
+    background: rgb(55, 53, 66);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     text-align: center;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    height: 48px;
+    padding: 0;
+    /* outline: 2px solid black; */
+}
+
+.img-load {
+    animation: load 3s infinite;
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(120deg);
+    }
+    50% {
+        transform: rotate(240deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 360px) {
+    .container-registro {
+        min-height: 800px;
+        padding-top: 10px;
+    }
+    .form-registro {
+        background: greenyellow;
+        min-height: 500px;
+        margin-top: 0;
+        /* margin-top: 20px; */
+    }
+    label {
+        font-size: 0.8rem;
+    }
+    input {
+        height: 40px;
+    }
+    .container-datos {
+        outline: 2px solid blue;
+        flex-direction: column;
+        min-height: 500px;
+    }
+    .datos-container {
+        flex-direction: column;
+        height: 70px;
+        outline: 2px solid gray;
+        width: 100%;
+    }
 }

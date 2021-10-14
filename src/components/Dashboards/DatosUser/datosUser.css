@@ -1,7 +1,8 @@
 .data-container {
     width: 25%;
     height: 85vh;
-    outline: 2px solid cadetblue;
+    /* outline: 2px solid cadetblue; */
+    background: chocolate;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -71,19 +72,20 @@
     cursor: pointer;
 }
 
-/* @media (max-width: 360px) {
+@media (max-width: 360px) {
     .data-container {
-        width: 90%;
-        height: 200px;
-        flex-direction: row;
-        margin-top: 230px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        width: 50%;
+        height: 40px;
+        position: fixed;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        top: 70px;
+        z-index: 1;
     }
     .react-img {
         outline: 2px solid blue;
         width: 25%;
+        display: none;
     }
     .close,
     .btn-ajustes {
@@ -94,6 +96,7 @@
         flex-direction: row;
         height: 200px;
         flex-wrap: wrap;
+        display: none;
     }
     .img {
         width: 10%;
@@ -102,4 +105,3 @@
         font-size: 0.8rem;
     }
 }
- */
